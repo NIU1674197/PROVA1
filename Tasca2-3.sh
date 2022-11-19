@@ -68,7 +68,6 @@ do
 		if [ $reset = "N" ]
 		then
 			bucle=0
-			bash Opcio2.sh $1
 			else
 			if [ $reset = "S" ]
 			then
