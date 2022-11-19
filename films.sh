@@ -45,6 +45,46 @@ function Opcio1(){
 	fi
 
 }
+function Opcio2(){
+	clear
+	echo "---------------------------------------------------"
+	echo "2 - Cerca de pel·lícules"
+	echo "---------------------------------------------------"
+	echo "1 Cerca  pel·lícules per títol"
+	echo "2 Cerca pel·lícules fetes entre dos anys"
+	echo "3 Cerca de pel·licules on ha intervingut una determinada persona."
+	echo "0 Tornar al menu anterior"
+	read select3
+	if [ $select3 = 1 ];
+	then	
+		echo "Introduir cadena:"
+		read cadena
+		bash Tasca2-1.sh $arxiu "$cadena"
+		read -n1 n
+		else
+			if [ $select3 = 2 ];
+			then
+				echo "Introduir any petit"
+				read anyp
+				echo "Introduir any gran"
+				read anyg
+				bash Tasca2-2.sh $arxiu $anyp $anyg
+				read -n1 n
+				else
+					if [ $select3 = 3 ];
+					then
+						echo "Introduir persona"
+						read persona
+						bash Tasca2-3.sh $arxiu "$persona"
+						read -n1 n
+	
+					fi
+			fi
+	fi
+
+
+}
+
 function enDesenvolupament(){
 	echo "En desenvolupament"
 }
@@ -61,22 +101,23 @@ do
 	then 
 		Opcio1
 		else
-			if [[ $select > 1  &&  $select < 5 ]] ;
+			if [ $select = 2 ];
 			then 
-				enDesenvolupament
-
-				read -n1 n
-		
-		
+				Opcio2
 				else
-					if [ $select = 0 ] ;
-					then
-					i=1
+				if [[ $select > 2  &&  $select < 5 ]] ;
+				then 
+					enDesenvolupament
+					read -n1 n
+					else
+						if [ $select = 0 ] ;
+						then
+						i=1
 				
-					else 	
-						OpcioNoValida
-						sleep 3
-				
+						else 	
+							OpcioNoValida
+							sleep 3
+						fi
 					fi
 			fi
 	fi
