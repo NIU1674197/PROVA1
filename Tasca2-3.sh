@@ -1,5 +1,5 @@
 #!/bin/bash
-
+clear
 Imprimir(){
 		any=`head -$i h.csv| tail -1| cut -d\; -f1`
 		length=`head -$i h.csv| tail -1| cut -d\; -f2`
@@ -71,7 +71,7 @@ do
 			else
 			if [ $reset = "S" ]
 			then
-				echo "Introduir cadena"
+				echo "Introduir nom persona"
 				read persona
 				clear
 			fi

@@ -1,5 +1,5 @@
 #!/bin/bash
-
+clear
 Imprimir(){
 		any=`head -$i h.csv| tail -1| cut -d\; -f1`
 		length=`head -$i h.csv| tail -1| cut -d\; -f2`

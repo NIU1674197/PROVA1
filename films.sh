@@ -25,7 +25,8 @@ function Opcio1(){
 	echo "1 Mostrar llistat de pel·licules (alfabètic per títol)"
 	echo "2 Mostrar llistat de pel·licules ordenats cronològicament per any."
 	echo "3 Mostrar llistat de pel·licules ordenades per popularitat de més a menys."
-	read select2
+	read -n1 select2
+	echo " "
 	if [ $select2 = 1 ];
 	then
 		bash Tasca1-1.sh $arxiu
@@ -54,7 +55,8 @@ function Opcio2(){
 	echo "2 Cerca pel·lícules fetes entre dos anys"
 	echo "3 Cerca de pel·licules on ha intervingut una determinada persona."
 	echo "0 Tornar al menu anterior"
-	read select3
+	read -n1 select3
+	echo " "
 	if [ $select3 = 1 ];
 	then	
 		echo "Introduir cadena:"
@@ -73,7 +75,7 @@ function Opcio2(){
 				else
 					if [ $select3 = 3 ];
 					then
-						echo "Introduir persona"
+						echo "Introduir nom persona"
 						read persona
 						bash Tasca2-3.sh $arxiu "$persona"
 						read -n1 n
@@ -96,7 +98,8 @@ function OpcioNoValida(){
 while [ $i -eq 0 ]
 do
 	Menu
-	read select
+	read -n1 select
+	echo " "
 	if [ $select = 1 ];
 	then 
 		Opcio1
@@ -113,7 +116,7 @@ do
 						if [ $select = 0 ] ;
 						then
 						i=1
-				
+						clear
 						else 	
 							OpcioNoValida
 							sleep 3
