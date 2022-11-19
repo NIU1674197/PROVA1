@@ -1,9 +1,10 @@
 #!/bin/bash
 
-i=3
-lin=`wc -l < $1`  
+i=1
+  
+tail +3 $1| sort -t ";" -k 1 -n >> h.csv
 
-awk -F ";" '{print $0}' $1 | sort -t ";" -k 1 -n >> h.csv
+lin=`wc -l < h.csv`
 
 until [ $i -gt $lin ]
 	do 
