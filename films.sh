@@ -27,25 +27,22 @@ function Opcio1(){
 	echo "3 Mostrar llistat de pel·licules ordenades per popularitat de més a menys."
 	read -n1 select2
 	echo " "
-	if [ $select2 = 1 ];
-	then
+	case $select2 in
+		1)
 		bash Tasca1-1.sh $arxiu
 		read -n1 n
-		else
-			if [ $select2 = 2 ];
-			then
-				bash Tasca1-2.sh $arxiu
-				read -n1 n
-				else
-					if [ $select2 = 3 ];
-					then
-						bash Tasca1-3.sh $arxiu
-						read -n1 n
-					fi
-			fi
-	fi
-
+		;;
+		2)
+		bash Tasca1-2.sh $arxiu
+		read -n1 n
+		;;
+		3)
+		bash Tasca1-3.sh $arxiu
+		read -n1 n
+		;;
+	esac
 }
+
 function Opcio2(){
 	clear
 	echo "---------------------------------------------------"
@@ -57,36 +54,56 @@ function Opcio2(){
 	echo "0 Tornar al menu anterior"
 	read -n1 select3
 	echo " "
-	if [ $select3 = 1 ];
-	then	
+	case $select3 in
+		1)
 		echo "Introduir cadena:"
 		read cadena
 		bash Tasca2-1.sh $arxiu "$cadena"
 		read -n1 n
-		else
-			if [ $select3 = 2 ];
-			then
-				echo "Introduir any petit"
-				read anyp
-				echo "Introduir any gran"
-				read anyg
-				bash Tasca2-2.sh $arxiu $anyp $anyg
-				read -n1 n
-				else
-					if [ $select3 = 3 ];
-					then
-						echo "Introduir nom persona"
-						read persona
-						bash Tasca2-3.sh $arxiu "$persona"
-						read -n1 n
-	
-					fi
-			fi
-	fi
-
-
+		;;
+		2)
+		echo "Introduir any petit"
+		read anyp
+		echo "Introduir any gran"
+		read anyg
+		bash Tasca2-2.sh $arxiu $anyp $anyg
+		read -n1 n
+		;;
+		3)
+		echo "Introduir nom persona"
+		read persona
+		bash Tasca2-3.sh $arxiu "$persona"
+		read -n1 n
+		;;
+	esac
 }
 
+function Opcio3(){
+	clear
+	echo "---------------------------------------------------"
+	echo "3 - Ets realment un expert en pel·lícules?"
+	echo "---------------------------------------------------"
+	echo "1 De quin any és...?"
+	echo "2 Qui va dirigir...?"
+	echo "3 De quin tema és?"
+	echo "0 Tornar al menu anterior"
+	read -n1 select4
+	case $select4 in
+		1)
+		bash Tasca3-1.sh $arxiu
+		read -n1 n
+		;;
+		2)
+		bash Tasca3-2.sh $arxiu
+		read -n1 n
+		;;
+		3)
+		bash Tasca3-3.sh $arxiu 
+		read -n1 n
+		;;
+	esac
+	
+}
 function enDesenvolupament(){
 	echo "En desenvolupament"
 }
@@ -100,28 +117,27 @@ do
 	Menu
 	read -n1 select
 	echo " "
-	if [ $select = 1 ];
-	then 
+	case $select in
+		1)
 		Opcio1
-		else
-			if [ $select = 2 ];
-			then 
-				Opcio2
-				else
-				if [[ $select > 2  &&  $select < 5 ]] ;
-				then 
-					enDesenvolupament
-					read -n1 n
-					else
-						if [ $select = 0 ] ;
-						then
-						i=1
-						clear
-						else 	
-							OpcioNoValida
-							sleep 3
-						fi
-					fi
-			fi
-	fi
+		;;
+		2)
+		Opcio2
+		;;
+		3)
+		Opcio3
+		;;
+		4)
+		enDesenvolupament
+		read -n1 n
+		;;
+		0)
+		i=1
+		clear
+		;;
+		*)
+		OpcioNoValida
+		sleep 3
+		;;
+	esac
 done
