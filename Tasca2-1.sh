@@ -71,7 +71,7 @@ do
 	else
 		echo " "
 		echo "Totes les pel·licules trobades "
-		echo "Pressiona qualsevol tecla per tornar al menu principal"
+		echo "Pressiona qualsevol tecla per tornar al menu anterior"
 		rm h.csv	
 	fi
 	

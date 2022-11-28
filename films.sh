@@ -44,6 +44,9 @@ function Opcio1(){
 }
 
 function Opcio2(){
+j=0
+while [ $j = 0 ]
+do
 	clear
 	echo "---------------------------------------------------"
 	echo "2 - Cerca de pel·lícules"
@@ -75,10 +78,17 @@ function Opcio2(){
 		bash Tasca2-3.sh $arxiu "$persona"
 		read -n1 n
 		;;
+		*)
+		j=1
+		;;
 	esac
+done
 }
 
 function Opcio3(){
+j=0
+while [ $j = 0 ]
+do
 	clear
 	echo "---------------------------------------------------"
 	echo "3 - Ets realment un expert en pel·lícules?"
@@ -101,8 +111,11 @@ function Opcio3(){
 		bash Tasca3-3.sh $arxiu 
 		read -n1 n
 		;;
+		*)
+		j=1
+		;;
 	esac
-	
+done	
 }
 function enDesenvolupament(){
 	echo "En desenvolupament"
