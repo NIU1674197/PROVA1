@@ -3,10 +3,10 @@
 lin=`wc -l < $1`
 i=0
 trobat=0
-j=1
- 
+clear
 #Bucle per buscar peli
-while [ "$i" = "$lin" ] || [ "$trobat" = 0 ]
+echo "Buscant..."
+while [ $i -ne $lin ] && [ "$trobat" = 0 ];
 do
 	any=`head -$i $1| tail -1| cut -d\; -f1`
 	titol=`head -$i $1| tail -1| cut -d\; -f3`
@@ -18,7 +18,7 @@ do
 			let i=i+1
 	fi
 done
-
+clear
 let abans=i-1
 let despres=i+1
 
