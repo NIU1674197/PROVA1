@@ -117,9 +117,100 @@ do
 	esac
 done	
 }
-function enDesenvolupament(){
-	echo "En desenvolupament"
+
+function Opcio4(){
+j=0
+while [ $j = 0 ]
+do
+	clear
+	echo "---------------------------------------------------"
+	echo "4 - Altes, baixes i modificacions de la base de 
+	dades."
+	echo "---------------------------------------------------"
+	echo "1 Alta"
+	echo "2 Baixa"
+	echo "3 Modificació"
+	echo "0 Tornar al menu anterior"
+	read -n1 select5
+	echo " "
+	case $select5 in
+		1)
+		clear
+		echo "---------------------------------------------------"
+		echo "4.1 - Alta"
+		echo "---------------------------------------------------"
+		echo "Introduexi les següents dades:"
+		echo "-Introduir el títol de la pel·lícula:"
+		read titol
+		echo "-Introduir l'any de la pel·lícula:"
+		read any
+		echo "-Introduir la longitud pel·lícula:"
+		read longitud
+		echo "-Introduir la popularitat de la pel·lícula:"
+		read popularitat
+		echo "-Introduir els premis de la pel·lícula"
+		read premis
+		echo "-Introduir el tema de la pel·lícula"
+		read tema
+		echo "-Introduir el director de la pel·lícula"
+		read director
+		echo "-Introduir l'actor de la pel·lícula"
+		read actor
+		echo "-Introduir l'actriu de la pel·lícula"
+		read actriu
+		bash Tasca4-1.sh "$arxiu" "$titol" "$any" "$longitud" "$popularitat" "$premis" "$tema" "$director" "$actor" "$actriu"
+		read -n1 n
+		;;
+		2)
+		clear
+		echo "---------------------------------------------------"
+		echo "4.2 - Baixa"
+		echo "---------------------------------------------------"
+		echo "Introduexi les següents dades:"
+		echo "-Introduir el títol de la pel·lícula:"
+		read titol
+		echo "-Introduir l'any de la pel·lícula:"
+		read any
+		echo "-Introduir el director de la pel·lícula:"
+		read director
+		bash Tasca4-2.sh "$arxiu" "$titol" "$any" "$director"
+		read -n1 n
+		;;
+		3)
+		clear
+		echo "---------------------------------------------------"
+		echo "4.3 - Modificació"
+		echo "---------------------------------------------------"
+		echo "Introduexi les següents dades:"
+		echo "-Introduir el títol de la pel·lícula:"
+		read titol
+		echo "-Introduir l'any de la pel·lícula:"
+		read any
+		echo "-Introduir el director de la pel·lícula"
+		read director
+		echo "A partir d'ara si vols modificar les dades escriu el canvi que vols fer i sinó vols modificar aquell apartat escriu un igual(=):"
+		echo "-Introduir la longitud de la pel·lícula:"
+		read longitud
+		echo "-Introduir la popularitat de la pel·lícula:"
+		read popularitat
+		echo "-Introduir els premis de la pel·lícula"
+		read premis
+		echo "-Introduir el tema de la pel·lícula"
+		read tema
+		echo "-Introduir l'actor de la pel·lícula"
+		read actor
+		echo "-Introduir l'actriu de la pel·lícula"
+		read actriu
+		bash Tasca4-3.sh "$arxiu" "$titol" "$any" "$longitud" "$popularitat" "$premis" "$tema" "$director" "$actor" "$actriu"
+		read -n1 n
+		;;
+		*)
+		j=1
+		;;
+	esac
+done
 }
+
 
 function OpcioNoValida(){
  	echo "ERROR"
@@ -141,8 +232,7 @@ do
 		Opcio3
 		;;
 		4)
-		enDesenvolupament
-		read -n1 n
+		Opcio4
 		;;
 		0)
 		i=1
@@ -153,4 +243,4 @@ do
 		sleep 3
 		;;
 	esac
-done 
+done
