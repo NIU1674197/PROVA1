@@ -11,4 +11,4 @@ Solució: Per solucionar-ho vam aplicar la comanda git reset --hard, això va fe
 Solució: Fer el commit tonto just abans de fer el merge de l'opció 1 amb la branca master.
 
 Aquest son els únics erros que hem hagut de solucionar durant la part A de la pràctica, la resta han estat els típics problemes de prova i error.
-      
+              
